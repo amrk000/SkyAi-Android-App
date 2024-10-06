@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>Dışarı çıkmak için en iyi saat aralığı nedir?|bugün|🚶‍♂️➡️</item>
+        <item>Arabamı sürmek güvenli mi?|bugün|🚘</item>
+        <item>Ne tür kıyafetler giymeliyim?|bugün|👕</item>
+        <item>Su geçirmez kıyafetlere/eşyalara ihtiyacım olacak mı?|bugün|💧</item>
+        <item>Güneş gözlüğüne/güneş kremine ihtiyacım olacak mı?|bugün|😎</item>
+        <item>Yüz maskesi takmalı mıyım?|bugün|😷</item>
+        <item>Rüzgar hızına göre deniz dalgaları sakin mi?|bugün|🌊</item>
+        <item>Seyahat etmek için en iyi gün hangisi?|bu hafta|🎒</item>
+        <item>Plaja gitmek için en iyi gün hangisi?|bu hafta|🏖️</item>
+        <item>Mangal/barbekü partisi için en iyi gün hangisi?|bu hafta|♨️</item>
+        <item>Kar aktiviteleri için en iyi gün hangisi?|bu hafta|🏂</item>
+    </string-array>
+</resources>

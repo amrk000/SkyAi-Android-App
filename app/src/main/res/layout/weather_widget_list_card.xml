@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/weatherMiniCardStatusIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/status_cloudy_morning_icon" />
+
+    <TextView
+        android:id="@+id/weatherMiniCardTempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weatherMiniCardStatusIcon"
+        android:layout_alignStart="@+id/weatherMiniCardStatusIcon"
+        android:layout_alignEnd="@+id/weatherMiniCardStatusIcon"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:text="00℃"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherMiniCardStatusIcon" />
+
+    <TextView
+        android:id="@+id/weatherMiniCardStatusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weatherMiniCardTempValue"
+        android:layout_alignStart="@+id/weatherMiniCardTempValue"
+        android:layout_alignEnd="@+id/weatherMiniCardTempValue"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:text="Clear"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherMiniCardTempValue" />
+
+
+    <TextView
+        android:id="@+id/weatherMiniCardTimeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weatherMiniCardStatusValue"
+        android:layout_alignStart="@+id/weatherMiniCardStatusIcon"
+        android:layout_alignEnd="@+id/weatherMiniCardStatusIcon"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="Time/Day"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintVertical_bias="0.0" />
+</RelativeLayout>

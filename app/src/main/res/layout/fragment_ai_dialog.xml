@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    tools:context=".presentation.view.fragment.AiDialogFragment">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:alpha="0.7"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rounded_horizontal_rule_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aiDialog_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:drawableStart="@drawable/ai_icon2"
+        android:drawablePadding="5dp"
+        android:drawableTint="?attr/colorPrimary"
+        android:ellipsize="marquee"
+        android:includeFontPadding="false"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="Question"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aiDialog_Data"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aiDialog_question"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/aiCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:outlineAmbientShadowColor="#0026FF00"
+            android:outlineSpotShadowColor="#0000FF22"
+            app:cardBackgroundColor="#E6141414"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/aiDialog_answerScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fadingEdge="vertical"
+                android:fadingEdgeLength="10dp"
+                android:requiresFadingEdge="vertical">
+
+                <TextView
+                    android:id="@+id/aiDialog_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="2sp"
+                    android:singleLine="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/aiDialog_question" />
+            </androidx.core.widget.NestedScrollView>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/aiDialog_Loading"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aiDialog_question">
+
+        <ImageView
+            android:id="@+id/aiDialog_LoadingCurve1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading_curve_1"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/aiDialog_LoadingCurve2"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:rotation="0"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading_curve_2"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/aiDialog_LoadingIcon"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading_main_icon"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/aiDialog_LoadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/thinking"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/aiDialog_LoadingIcon"
+            app:layout_constraintStart_toStartOf="@+id/aiDialog_LoadingIcon"
+            app:layout_constraintTop_toBottomOf="@+id/aiDialog_LoadingIcon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

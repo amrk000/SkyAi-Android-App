@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>Wann ist die beste Zeit, um nach draußen zu gehen?|heute|🚶‍♂️➡️</item>
+        <item>Ist es sicher, mit dem Auto zufahren?|heute|🚘</item>
+        <item>Welche Kleidung soll ich tragen?|heute|👕</item>
+        <item>Brauche ich wasserdichte Kleidung / Sachen?|heute|💧</item>
+        <item>Brauche ich eine Sonnenbrille / Sonnencreme?|heute|😎</item>
+        <item>Sollte ich eine Gesichtsmaske tragen?|heute|😷</item>
+        <item>Sind die Meereswellen basierend auf der Windgeschwindigkeit ruhig?|heute|🌊</item>
+        <item>Welcher Tag ist der beste zum Reisen?|diese Woche|🎒</item>
+        <item>Welcher Tag ist der beste, um an den Strand zu gehen?|diese Woche|🏖️</item>
+        <item>Welcher Tag ist der beste zum Grillen / für eine Grillparty?|diese Woche|♨️</item>
+        <item>Welcher Tag ist der beste für Schneeaktivitäten?|diese Woche|🏂</item>
+    </string-array>
+
+</resources>

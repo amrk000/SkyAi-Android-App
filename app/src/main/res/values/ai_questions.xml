@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>What is the best hours range to go out?|today|🚶‍♂️‍➡️</item>
+        <item>Is it safe to drive my car?|today|🚘</item>
+        <item>What clothes to wear?|today|👕</item>
+        <item>Will i need waterproof clothes / stuff?|today|💧</item>
+        <item>Will i need sunglasses / sunblock?|today|😎</item>
+        <item>Should i wear a face mask?|today|😷</item>
+        <item>based on wind speed, are the sea waves calm?|today|🌊</item>
+        <item>What is the best day to travel?|this week|🎒</item>
+        <item>What is the best day to go to beach?|this week|🏖️</item>
+        <item>What is the best day to grill / barbecue party?|this week|♨️</item>
+        <item>What is the best day to do snow activities?|this week|🏂</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101010"
+    tools:context=".presentation.view.activity.AboutActivity">
+
+    <ImageButton
+        android:id="@+id/about_closeButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="24dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/circle_button_ripple"
+        android:scaleType="fitCenter"
+        android:src="@drawable/baseline_close_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorPrimary" />
+
+    <ImageView
+        android:id="@+id/about_AppIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/about_CreditCard"
+        app:layout_constraintEnd_toEndOf="@+id/about_AppTitle"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/about_AppTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/about_AppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_AppIcon" />
+
+    <TextView
+
+        android:id="@+id/about_AppVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Version 0.0"
+        android:textAlignment="center"
+        android:textColor="#919191"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_AppTitle" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/about_CreditCard"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/about_madeBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Made by"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/about_Amrk000"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_madeBy"
+            app:srcCompat="@drawable/amrk000" />
+
+        <Button
+            android:id="@+id/moreapps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#00A307"
+            android:drawableLeft="@drawable/googleplay_icon"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="15dp"
+            android:text="My Apps on Store"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_Amrk000" />
+
+        <Button
+            android:id="@+id/about_appRepoButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#1F1F1F"
+            android:drawableLeft="@drawable/github_icon"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="15dp"
+            android:text="App Github Repo"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            app:cornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moreapps" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

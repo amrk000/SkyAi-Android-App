@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>Qual è il miglior intervallo di ore per uscire?|oggi|🚶‍♂️➡️</item>
+        <item>È sicuro guidare la mia auto?|oggi|🚘</item>
+        <item>Quali vestiti indossare?|oggi|👕</item>
+        <item>Avrò bisogno di vestiti / cose impermeabili?|oggi|💧</item>
+        <item>Avrò bisogno di occhiali da sole / crema solare?|oggi|😎</item>
+        <item>Dovrei indossare una mascherina?|oggi|😷</item>
+        <item>In base alla velocità del vento, le onde del mare sono calme?|oggi|🌊</item>
+        <item>Qual è il giorno miglioreper viaggiare?|questa settimana|🎒</item>
+        <item>Qual è il giorno migliore per andare in spiaggia?|questa settimana|🏖️</item>
+        <item>Qual è il giorno migliore per fare un barbecue?|questa settimana|♨️</item>
+        <item>Qual è il giorno migliore per fare attività sulla neve?|questa settimana|🏂</item>
+    </string-array>
+</resources>

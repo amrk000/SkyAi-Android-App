@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.view.fragment.SettingsDialogFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/settingsCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:outlineAmbientShadowColor="#0026FF00"
+        android:outlineSpotShadowColor="#0000FF22"
+        app:cardBackgroundColor="@color/transparentBlack"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settingsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/settings"
+                android:textColor="@color/mainColor"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/settingsTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/outline_notifications_24"
+                android:gravity="start"
+                android:text="@string/notifications"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/settingsSendNotificationSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:showText="true"
+                android:text="@string/send_notifications"
+                android:layout_marginStart="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/grey"
+                android:thumbTint="?attr/colorPrimary"
+                app:trackTint="@color/grey" />
+
+            <TextView
+                android:id="@+id/settingsTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/outline_design_services_24"
+                android:gravity="start"
+                android:text="@string/units_system"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/settingsChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:isScrollContainer="false"
+                app:chipSpacingHorizontal="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/settingsMetricChip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/metric"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:checkedIconEnabled="true"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="#25000000"
+                app:chipCornerRadius="10dp"
+                app:chipSurfaceColor="?attr/colorPrimary"
+                app:rippleColor="?attr/colorOnPrimary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/settingsImperialChip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="false"
+                android:text="@string/imperial"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:checkedIconEnabled="true"
+                app:checkedIconTint="#FFFFFF"
+                app:chipBackgroundColor="#25000000"
+                app:chipCornerRadius="10dp"
+                app:chipSurfaceColor="?attr/colorPrimary"
+                app:rippleColor="?attr/colorOnPrimary" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/settingsTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/outline_location_on_24"
+                android:gravity="start"
+                android:text="@string/location"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/settingsCurrentLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current: City, Country"
+                android:textColor="@color/grey"
+                android:layout_marginStart="5dp"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/settingsSetLocationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_ripple"
+                android:text="@string/update_location"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@null"
+                app:icon="@drawable/rounded_edit_location_alt_24"
+                app:iconPadding="0dp"
+                app:iconSize="28dp"
+                app:iconTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/settingsTextView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/rounded_language_24"
+                android:gravity="start"
+                android:text="@string/app_language"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <Button
+                android:id="@+id/settingsChangeLanguageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_ripple"
+                android:text="@string/change_language"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@null"
+                app:icon="@drawable/rounded_edit_square_24"
+                app:iconPadding="0dp"
+                app:iconSize="28dp"
+                app:iconTint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/settingsCloseButton"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginTop="12dp"
+                app:cornerRadius="19dp"
+                android:text="@string/close_window"
+                android:backgroundTint="#262626"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:icon="@drawable/baseline_close_24"
+                app:rippleColor="@color/black"
+                app:iconPadding="0dp"
+                app:iconSize="28dp"
+                app:iconTint="#FFFFFF" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

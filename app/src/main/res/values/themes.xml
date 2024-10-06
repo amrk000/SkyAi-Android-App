@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SkyAI" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/mainColor</item>
+
+        <item name="android:colorBackground">@color/black</item>
+        <item name="statusBarForeground">@color/white</item>
+
+        <item name="android:windowSplashScreenBehavior" tools:targetApi="33">icon_preferred</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="32">@color/mainColor
+        </item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="32">
+            @drawable/splash_icon
+        </item>
+
+    </style>
+
+    <style name="BottomSheetStyle" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/transparentBlack</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="Base.Theme.SkyAI.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Base.Theme.SkyAI.AppWidgetContainer" parent="Base.Theme.SkyAI.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.activity.MainActivity">
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/daybg"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <VideoView
+        android:id="@+id/backgroundVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backgroundDim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.7"
+        android:paddingBottom="300dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dimbg" />
+
+    <ProgressBar
+        android:id="@+id/main_loadingDataPorgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:indeterminateTint="#FFFFFF"
+        android:scaleY="5"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/main_UI"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="35dp"
+            android:requiresFadingEdge="vertical"
+            android:scrollbarSize="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="12dp"
+                    android:paddingTop="40dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/noInternetNotif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/offline"
+                        android:textColor="#4DFFFFFF"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="@+id/aboutButton"
+                        app:layout_constraintEnd_toStartOf="@+id/settingsButton"
+                        app:layout_constraintStart_toEndOf="@+id/aboutButton"
+                        app:layout_constraintTop_toTopOf="@+id/aboutButton" />
+
+                    <ImageButton
+                        android:id="@+id/aboutButton"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle_button_ripple"
+                        android:gravity="start"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/baseline_about_outline_24" />
+
+                    <ImageButton
+                        android:id="@+id/settingsButton"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/circle_button_ripple"
+                        android:gravity="end"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/baseline_settings_24" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/weatherLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/outline_location_on_24"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="City, Country"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/weatherTemp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25" />
+
+                <ImageView
+                    android:id="@+id/weatherStatusIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/status_cloudy_morning_icon" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/weatherTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="80sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/weatherTempUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/C"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/weatherTemp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.25" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/weatherStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="status"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/weatherTemp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25" />
+
+                <TextView
+                    android:id="@+id/weatherFeelsLike"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="Feels Like 00℃"
+                    android:textColor="#B2FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/weatherTemp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.25" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weatherWindSpeedCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="85dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:outlineAmbientShadowColor="#0026FF00"
+                        android:outlineSpotShadowColor="#0000FF22"
+                        app:cardBackgroundColor="#72000000"
+                        app:cardCornerRadius="25dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.45"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherWindSpeedIcon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/rounded_air_24" />
+
+                            <TextView
+                                android:id="@+id/weatherWindSpeedLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="@string/wind_speed"
+                                android:textColor="@color/mainColor"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherWindSpeedIcon" />
+
+                            <TextView
+                                android:id="@+id/weatherWindSpeedValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="00 km/h"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/weatherWindSpeedIcon"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherWindSpeedIcon"
+                                app:layout_constraintTop_toTopOf="@+id/guideline" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weatherVisibilityCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="85dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:outlineAmbientShadowColor="#0026FF00"
+                        android:outlineSpotShadowColor="#0000FF22"
+                        app:cardBackgroundColor="#72000000"
+                        app:cardCornerRadius="25dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.45"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherVisibilityIcon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/rounded_visibility_24" />
+
+                            <TextView
+                                android:id="@+id/weatherVisibilityLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="@string/visibility"
+                                android:textColor="@color/mainColor"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherVisibilityIcon" />
+
+                            <TextView
+                                android:id="@+id/weatherVisibilityValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="00 km"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherVisibilityIcon"
+                                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weatherHumidityCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="85dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:outlineAmbientShadowColor="#0026FF00"
+                        android:outlineSpotShadowColor="#0000FF22"
+                        app:cardBackgroundColor="#72000000"
+                        app:cardCornerRadius="25dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.45"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherHumidityIcon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/rounded_water_drop_24" />
+
+                            <TextView
+                                android:id="@+id/weatherHumidityLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="@string/humidity"
+                                android:textColor="@color/mainColor"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherHumidityIcon" />
+
+                            <TextView
+                                android:id="@+id/weatherHumidityValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="00.0 %"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherHumidityIcon"
+                                app:layout_constraintTop_toTopOf="@+id/guideline3" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/weatherUvCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="85dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:outlineAmbientShadowColor="#0026FF00"
+                        android:outlineSpotShadowColor="#0000FF22"
+                        app:cardBackgroundColor="#72000000"
+                        app:cardCornerRadius="25dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                app:layout_constraintGuide_percent="0.45"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherUvIcon"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginStart="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/baseline_uv_24" />
+
+                            <TextView
+                                android:id="@+id/weatherUvLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="@string/uv_index"
+                                android:textColor="@color/mainColor"
+                                app:layout_constraintBottom_toTopOf="@+id/guideline4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherUvIcon" />
+
+                            <TextView
+                                android:id="@+id/weatherUvValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:includeFontPadding="false"
+                                android:text="LOW"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/weatherUvIcon"
+                                app:layout_constraintTop_toTopOf="@+id/guideline4" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/weatherSunTimesCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="95dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:outlineAmbientShadowColor="#0026FF00"
+                    android:outlineSpotShadowColor="#0000FF22"
+                    app:cardBackgroundColor="#72000000"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.45"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/weatherSunRiseIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/sunrise" />
+
+                        <TextView
+                            android:id="@+id/weatherSunRiseLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/sunrise"
+                            android:textColor="@color/mainColor"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherSunRiseIcon" />
+
+                        <TextView
+                            android:id="@+id/weatherSunRiseValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="00:00 AM"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherSunRiseIcon"
+                            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+                        <TextView
+                            android:id="@+id/weatherSunSetLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/sunset"
+                            android:textColor="@color/mainColor"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherSunSetIcon" />
+
+                        <TextView
+                            android:id="@+id/weatherSunSetValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:includeFontPadding="false"
+                            android:text="00:00 PM"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherSunRiseIcon"
+                            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+                        <ImageView
+                            android:id="@+id/weatherSunSetIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/weatherSunSetValue"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/sunset" />
+
+                        <ProgressBar
+                            android:id="@+id/timeProgressBar"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="72dp"
+                            android:layout_marginEnd="72dp"
+                            android:backgroundTint="@color/mainColor"
+                            android:progress="50"
+                            android:progressTint="@color/mainColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weatherSunRiseIcon" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/weatherHourlyCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:outlineAmbientShadowColor="#0026FF00"
+                    android:outlineSpotShadowColor="#0000FF22"
+                    app:cardBackgroundColor="#72000000"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/weatherHourlyIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/baseline_clock_time_24" />
+
+                        <TextView
+                            android:id="@+id/weatherHourlyLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/forecast"
+
+                            android:textColor="@color/mainColor"
+                            app:layout_constraintBottom_toTopOf="@+id/weatherHourlyValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherHourlyIcon" />
+
+                        <TextView
+                            android:id="@+id/weatherHourlyValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/per_hour"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/weatherHourlyIcon"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherHourlyIcon" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weatherHourlyRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weatherHourlyIcon"
+                            android:fadingEdge="horizontal"
+                            android:requiresFadingEdge="horizontal"
+                            android:fadingEdgeLength="25dp"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/weather_recyclerview_card" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/weatherDailyCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:outlineAmbientShadowColor="#0026FF00"
+                    android:outlineSpotShadowColor="#0000FF22"
+                    app:cardBackgroundColor="#72000000"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/weatherDailyIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/rounded_calendar_today_24" />
+
+                        <TextView
+                            android:id="@+id/weatherDailyLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/forecast"
+
+                            android:textColor="@color/mainColor"
+                            app:layout_constraintBottom_toTopOf="@+id/weatherDailyValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherDailyIcon" />
+
+                        <TextView
+                            android:id="@+id/weatherDailyValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/per_day"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/weatherDailyIcon"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherDailyIcon" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weatherDailyRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weatherDailyIcon"
+                            android:fadingEdge="horizontal"
+                            android:requiresFadingEdge="horizontal"
+                            android:fadingEdgeLength="25dp"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/weather_recyclerview_card" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/weatherAiCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:outlineAmbientShadowColor="#0026FF00"
+                    android:outlineSpotShadowColor="#0000FF22"
+                    app:cardBackgroundColor="#72000000"
+                    app:cardCornerRadius="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/weatherAiIcon"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:srcCompat="@drawable/ai_icon1" />
+
+                        <TextView
+                            android:id="@+id/weatherAiLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/ask_ai"
+
+                            android:textColor="@color/mainColor"
+                            app:layout_constraintBottom_toTopOf="@+id/weatherAiValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherAiIcon" />
+
+                        <TextView
+                            android:id="@+id/weatherAiValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:includeFontPadding="false"
+                            android:text="@string/ai_assistant"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/weatherAiIcon"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/weatherAiIcon" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weatherAiValue">
+
+                            <ImageView
+                                android:id="@+id/weatherAiCurve1"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/loading_curve_1"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherAiCurve2"
+                                android:layout_width="145dp"
+                                android:layout_height="145dp"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:rotation="0"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/loading_curve_2"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/weatherAiImage"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/loading_main_icon"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weatherAiRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="vertical"
+                            android:isScrollContainer="false"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                            tools:itemCount="20"
+                            tools:listitem="@layout/ai_recyclerview_card" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

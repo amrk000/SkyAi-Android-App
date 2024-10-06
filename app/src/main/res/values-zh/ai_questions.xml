@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>外出活动的最佳时间段是什么时候？|今天|🚶‍♂️➡️</item>
+        <item>现在开车安全吗？|今天|🚘</item>
+        <item>应该穿什么衣服？|今天|👕</item>
+        <item>我需要防水衣物/用品吗？|今天|💧</item>
+        <item>我需要戴太阳镜/涂防晒霜吗？|今天|😎</item>
+        <item>我应该戴口罩吗？|今天|😷</item>
+        <item>根据风速，海浪平静吗？|今天|🌊</item>
+        <item>旅行的最佳日期是哪天？|本周|🎒</item>
+        <item>去海滩的最佳日期是哪天？|本周|🏖️</item>
+        <item>烧烤/户外派对的最佳日期是哪天？|本周|♨️</item>
+        <item>进行雪上活动的最佳日期是哪天？|本周|🏂</item>
+    </string-array>
+</resources>

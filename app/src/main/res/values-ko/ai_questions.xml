@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>외출하기 가장 좋은 시간은 언때인가요?|오늘|🚶‍♂️➡️</item>
+        <item>차를 운전해도안전한가요?|오늘|🚘</item>
+        <item>어떤 옷을 입어야 할까요?|오늘|👕</item>
+        <item>방수 옷/물건이 필요할까요?|오늘|💧</item>
+        <item>선글라스/선크림이 필요할까요?|오늘|😎</item>
+        <item>마스크를 써야 할까요?|오늘|😷</item>
+        <item>풍속을 기준으로 바다물결이 잔잔한가요?|오늘|🌊</item>
+        <item>여행하기 가장 좋은 날은 언제인가요?|이번 주|🎒</item>
+        <item>해변에 가기 가장 좋은 날은 언제인가요?|이번 주|🏖️</item>
+        <item>바베큐 파티를 하기 가장 좋은 날은 언제인가요?|이번 주|♨️</item>
+        <item>눈 활동을 하기 가장 좋은 날은 언제인가요?|이번 주|🏂</item>
+    </string-array>
+</resources>

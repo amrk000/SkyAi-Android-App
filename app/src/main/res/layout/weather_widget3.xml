@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.SkyAI.AppWidget.Container"
+    android:id="@+id/widget3Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FF0000"
+    android:padding="0dp"
+    android:gravity="center"
+    android:theme="@style/Base.Theme.SkyAI.AppWidgetContainer">
+
+    <ImageView
+        android:id="@+id/widget3StatusIcon"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/status_cloudy_morning_icon" />
+
+    <TextView
+        android:id="@+id/widget3Temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget3StatusIcon"
+        android:layout_alignStart="@+id/widget3StatusIcon"
+        android:layout_alignEnd="@+id/widget3StatusIcon"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="12"
+        android:textColor="#FFFFFF"
+        android:textSize="68sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/widget3TempUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/widget3Temp"
+        android:layout_alignEnd="@+id/widget3Temp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:text="@string/C"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/widget3Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget3Temp"
+        android:layout_alignStart="@+id/widget3StatusIcon"
+        android:layout_alignEnd="@+id/widget3StatusIcon"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.3"
+        android:text="Cloudy"
+        android:textColor="#FFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+
+
+
+</RelativeLayout>

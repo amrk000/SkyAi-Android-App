@@ -1,0 +1,111 @@
+[versions]
+agp = "8.5.0"
+androidxHiltWork = "1.0.0"
+androidxRules = "1.6.1"
+byteBuddyAndroid = "1.14.15"
+converterGson = "2.9.0"
+coreSplashscreen = "1.0.1"
+gson = "2.11.0"
+hamcrest = "3.0"
+hamcrestLibrary = "2.2"
+hiltAndroid = "2.51.1"
+hiltCompiler = "2.52"
+hiltCompilerVersion = "1.2.0"
+hiltWork = "1.2.0"
+hiltWorkVersion = "1.2.0"
+htextviewBase = "1.1.0"
+htextviewBaseVersion = "0.1.6"
+htextviewEvaporate = "0.1.6"
+instancioCore = "5.0.2"
+kotlin = "1.9.0"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+kotlinxCoroutinesAndroid = "1.7.3"
+lifecycleViewmodel = "2.3.1"
+lifecycleViewmodelKtx = "2.8.5"
+material = "1.12.0"
+activity = "1.9.1"
+constraintlayout = "2.1.4"
+mockitoCore = "5.2.0"
+mockk = "1.13.5"
+rules = "1.6.1"
+runner = "1.6.2"
+swiperefreshlayout = "1.1.0"
+viewpager2 = "1.1.0"
+playServicesLocation = "21.3.0"
+legacySupportV4 = "1.0.0"
+lifecycleLivedataKtx = "2.8.5"
+fragmentKtx = "1.5.6"
+workMultiprocess = "2.9.1"
+junitJupiter = "5.8.1"
+junitJunit = "4.12"
+junitKtx = "1.2.1"
+espressoContrib = "3.6.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidxHiltWork" }
+androidx-hilt-compiler-v120 = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompilerVersion" }
+androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltWork" }
+androidx-hilt-work-v100 = { module = "androidx.hilt:hilt-work", version.ref = "hiltWorkVersion" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycleViewmodel" }
+androidx-lifecycle-reactivestreams = { module = "androidx.lifecycle:lifecycle-reactivestreams", version.ref = "lifecycleViewmodel" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewmodel" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleViewmodel" }
+androidx-rules = { module = "androidx.test:rules", version.ref = "rules" }
+androidx-rules-v140 = { module = "androidx.test:rules", version.ref = "androidxRules" }
+androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+androidx-work-multiprocess = { module = "androidx.work:work-multiprocess", version.ref = "workMultiprocess" }
+androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "workMultiprocess" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workMultiprocess" }
+byte-buddy-android = { module = "net.bytebuddy:byte-buddy-android", version.ref = "byteBuddyAndroid" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+hamcrest-library = { module = "org.hamcrest:hamcrest-library", version.ref = "hamcrestLibrary" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCompiler" }
+hilt-work-v100 = { module = "androidx.hilt:hilt-work", version.ref = "androidxHiltWork" }
+htextview-base = { module = "com.hanks:htextview-base", version.ref = "htextviewBase" }
+htextview-base-v016 = { module = "com.hanks:htextview-base", version.ref = "htextviewBaseVersion" }
+htextview-evaporate = { module = "com.hanks:htextview-evaporate", version.ref = "htextviewBase" }
+htextview-evaporate-v016 = { module = "com.hanks:htextview-evaporate", version.ref = "htextviewEvaporate" }
+instancio-core = { module = "org.instancio:instancio-core", version.ref = "instancioCore" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesAndroid" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoCore" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoCore" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-agent = { module = "io.mockk:mockk-agent", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
+androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aiQuestions">
+        <item>外出するのに最適な時間帯は？|今日|🚶‍♂️➡️</item>
+        <item>車を運転しても安全ですか？|今日|🚘</item>
+        <item>どんな服装をすればいいですか？|今日|👕</item>
+        <item>防水の服/物が必要ですか？|今日|💧</item>
+        <item>サングラス/日焼け止めが必要ですか？|今日|😎</item>
+        <item>マスクを着用する必要がありますか？|今日|😷</item>
+        <item>風速に基づいて、海の波は穏やかですか？|今日|🌊</item>
+        <item>旅行に最適な日は？|今週|🎒</item>
+        <item>ビーチに行くのに最適な日は？|今週|🏖️</item>
+        <item>バーベキューをするのに最適な日は？|今週|♨️</item>
+        <item>雪遊びをするのに最適な日は？|今週|🏂</item>
+    </string-array>
+</resources>
