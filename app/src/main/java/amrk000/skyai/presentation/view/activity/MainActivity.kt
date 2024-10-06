@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var loadingWeatherData: LoadingDialogFragment
 
-    var testMode = true
+    var testMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
                 val question = data.split("|")[0]
                 val time = data.split("|")[1]
 
-                val fullQuestion = question.replace("?", " $time?")
+                val fullQuestion = question.replace("?", " $time?").replace("؟", " $time؟")
 
                 lateinit var givenData: String
                 if(time == "today"){
@@ -262,7 +262,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun renderWeatherData(weatherData : amrk000.skyai.data.model.WeatherData.WeatherData){
+    fun renderWeatherData(weatherData : WeatherData){
         binding.weatherLocation.text = viewModel.getLocationData()?.city.toString() + ", " + viewModel.getLocationData()?.country.toString()
 
         val unites = viewModel.getUnits()

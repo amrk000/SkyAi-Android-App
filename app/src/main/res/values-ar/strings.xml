@@ -8,7 +8,7 @@
     <string name="offline">غير متصل</string>
     <string name="wind_speed">سرعة الرياح</string>
     <string name="humidity">الرطوبة</string>
-    <string name="uv_index">الأشعة فوق البنفسجية</string>
+    <string name="uv_index">فوق البنفسجية</string>
     <string name="sunrise">شروق الشمس</string>
     <string name="sunset">غروب الشمس</string>
     <string name="forecast">التوقعات</string>

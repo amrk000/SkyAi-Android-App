@@ -1,6 +1,7 @@
 package amrk000.skyai.presentation.viewModel
 
 import amrk000.skyai.data.model.CachedWeatherData
+import amrk000.skyai.data.model.ResponseData
 import amrk000.skyai.domain.entity.UserLocation
 import amrk000.skyai.data.model.WeatherData.WeatherData
 import amrk000.skyai.data.model.WeatherData.Daily
@@ -22,6 +23,7 @@ import amrk000.skyai.data.repository.WeatherRepository
 import amrk000.skyai.domain.entity.UnitsSystem
 import amrk000.skyai.domain.useCase.GetUserLocationUseCase
 import amrk000.skyai.domain.useCase.GetWeatherDataUseCase
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.work.BackoffPolicy
 
@@ -146,13 +148,15 @@ class MainViewModel @Inject constructor (
             if(result!=null) {
                 emitWeatherData(result)
 
-                val currentDateTime = Instant.now().toString()
-                setCachedWeatherData(
-                    CachedWeatherData(
-                        result,
-                        currentDateTime
+                if(result.code == ResponseData.SUCCESSFUL_OPERATION) {
+                    val currentDateTime = Instant.now().toString()
+                    setCachedWeatherData(
+                        CachedWeatherData(
+                            result,
+                            currentDateTime
+                        )
                     )
-                )
+                }
             }
 
         }
